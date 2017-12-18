@@ -1,5 +1,6 @@
 <?php
-include 'db_connection.php';
+session_start();
+include('db_connection.php');
  ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,9 @@ include 'db_connection.php';
   </head>
   <body>
     <div id="profile">
-      <p><h1>Welcome: </h1> <?php echo $login_session; ?></p>
+      <p><strong>Welcome: </strong> <?php echo $login_user = $_SESSION['login_user']; ?></p>
+      <br><br>
+      <a href="logout.php">Logout</a>
     </div>
   </body>
 </html>

@@ -21,8 +21,9 @@
     <!-- LOGIN -->
     <h1>Please enter details to log in</h1>
     <form class="" action="login.php" method="post"><br>
-      <input type="text" name="username" placeholder="Username" /><br>
+      <input type="text" name="username" placeholder="Username" value="<?php echo $_COOKIE['remember_me'];?>"><br>
       <input type="password" name="password" placeholder="Password" /><br>
+      <input type="checkbox" name="remember" value="1">Remember Me <br>
       <input type="submit" name="submit" value="Submit" />
     </form>
   </body>

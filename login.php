@@ -5,6 +5,8 @@ include 'db_connection.php';
 // Variables taken from form
 $username = Trim(stripslashes($_POST['username']));
 $password = Trim(stripslashes($_POST['password']));
+$hour = time() + 3600;
+setcookie('remember_me', $_POST['username'], $hour);
 // Accessing account from database
 $sql = "SELECT * FROM users WHERE username='$username'";
 // Getting result from database
@@ -20,12 +22,11 @@ if ($count == 1) {
   }
   // Verifying password
   if (password_verify($password, $dbPass)) {
-    $_SESSION['login_session']=$username;
+    $_SESSION['login_user'] = $username;
     header("location: profile.php");
   } else {
     header("location: index.php");
   }
-  mysqli_close($mysqli);
 }
 
 
